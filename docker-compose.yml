@@ -1,0 +1,16 @@
+services:
+  app:
+    ports:
+      - "8000:8000"
+    container_name: network-test-connection
+    image: network-test-connection:latest
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+    restart: unless-stopped
+    networks:
+      - local_network
+
+networks:
+  local_network:
+    external: true
